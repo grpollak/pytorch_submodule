@@ -4,18 +4,18 @@
 ** Adding it as a submodule:
 #+BEGIN_SRC bash
     cd <path to formulary/ folder>
-    git submodule add git@gitlab.ethz.ch:formularies/python/python_submodule.git
+    git submodule add git@gitlab.ethz.ch:formularies/pytorch/pytorch_submodule.git
 #+END_SRC
 ** In your formulary add
 #+BEGIN_SRC latex
 \newpage
-\section*{Math Background}
-	\input{python_submodule/python.tex}
+\section*{Pytorch Background}
+	\input{pytorch_submodule/pytorch.tex}
 #+END_SRC
 *** In order to include figures add to graphicspath
 #+BEGIN_SRC latex
 \graphicspath{
     ...
-    {python_submodule/figures/}
+    {pytorch_submodule/figures/}
 }
 #+END_SRC
