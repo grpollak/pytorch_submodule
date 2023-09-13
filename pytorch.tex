@@ -1,7 +1,33 @@
  \appendtographicspath{
-          {pytorch_submodule/figures/}
+          {python_submodule/figures/}
+          {pytorch_submodule/src/the_framework/graph_acquisition/figures/}
           }
-\section*{Graph Aquisation}
+
+\section{PyTorch Internals}
+  \subsection*{Torch Eager Mode}\label{subsec:torch_eager_mode}
+
+  \subsection*{Dynamic computational graphs}\label{subsec:name}
+  \subsection*{FX Graph}\label{subsec:name}
+
+  \subsection*{Torch Compile}\label{subsec:torch_compile}
+  \subsection*{Graph Acquisition}
+    \subsubsection{FX Tracing - Legacy}
+    \subsubsection{Torch Dynamo}
+      \input{pytorch_submodule/src/the_framework/graph_acquisition/torch_dynamo/torch_dynamo.tex}
+    \subsubsection{AOTAutograd}
+  \subsection*{Graph Lowering}
+    \subsubsection{ATen}
+    \subsubsection{Prim IR}
+  \subsection*{Graph Compilation}
+    \subsubsection{TorchScript Compiler - Legacy}\label{subsubsec:torchinductor}
+    \subsubsection{TorchInductor}\label{subsubsec:torchinductor}
+\section*{Building Models}\label{sec:building_models}
+    \subsection{\pythoninline{torch.functional}}\label{subsec:torchinductor}
+      \input{pytorch_submodule/src/building_neural_networks/torch_functional/torch_functional.tex}
+
+\section{Benchmarking}\label{sec:benchmarking}
+
+
 
 %%% Local Variables:
 %%% mode: latex

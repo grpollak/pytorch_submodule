@@ -1,0 +1,25 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[Torch Dynamo]\label{defn:torch_dynamo}\leavevmode\\
+        Generates \textit{FX Graphs}\cref{defn:fx_graph} from Python bytecode.\\
+        It uses the frame evaluation API in CPython to dynamically modify Python bytecode before execution.\\
+        This modified python bytecode is then extracted into an FX Graph which can then be just-in-time compiled with a suitable backend.
+        \begin{figure}[H]
+            \vspace{-1em}
+            \centering{
+              \def\svgwidth{200pt}
+              \resizebox{\linewidth}{!}{\input{pytorch_submodule/src/the_framework/graph_acquisition/figures/torch_dynamo.pdf_tex}}
+            }
+        \end{figure}
+    \end{defn}
+\end{defnbox}
+\begin{notebox}[Note]\nospacing
+    \begin{itemizenosep}
+        \item Torch Dynamo maintains the eager-mode capabilities using guards to ensure the generated graphs are valid
+    \end{itemizenosep}
+\end{notebox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../formulary"
+%%% End:
