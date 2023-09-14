@@ -3,24 +3,33 @@
           {pytorch_submodule/src/the_framework/graph_acquisition/figures/}
           }
 
-\section{PyTorch Internals}
+
+\section{Pytorch Basics}
+  \input{pytorch_submodule/src/the_framework/basics/basics.tex}
   \subsection*{Torch Eager Mode}\label{subsec:torch_eager_mode}
-
-  \subsection*{Dynamic computational graphs}\label{subsec:name}
-  \subsection*{FX Graph}\label{subsec:name}
-
-  \subsection*{Torch Compile}\label{subsec:torch_compile}
-  \subsection*{Graph Acquisition}
-    \subsubsection{FX Tracing - Legacy}
-    \subsubsection{Torch Dynamo}
+      \input{pytorch_submodule/src/the_framework/basics/eager_mode/eager_mode.tex}
+    % \subsubsection*{Automatic Differentiation \rb{AD}}\label{subsec:automatic_differentiation}
+    %   \input{pytorch_submodule/src/the_framework/basics/automatic_differentiation/automatic_differentiation.tex}
+    % \subsubsubsection{Gradient Computation}\label{subsubsec:gradient_computation}
+    %     \input{pytorch_submodule/src/the_framework/basics/automatic_differentiation/gradient_computation.tex}
+\section{PyTorch Internals}
+  \subsection*{Graph Acquisition}\stepcounter{subsubsection}
+      \input{pytorch_submodule/src/the_framework/graph_acquisition/graph_acquisition.tex}
+    \subsection*{Torch FX}\label{subsec:fx_graph}
+      \input{pytorch_submodule/src/the_framework/graph_acquisition/torch_fx/torch_fx.tex}
+    \subsection{\tc{gray}{\textit{FX Tracing - Legacy}}}
+    \subsection{Torch Dynamo\hfill\normalsize{\pythoninline{import torch._dynamo as dynamo}}}
       \input{pytorch_submodule/src/the_framework/graph_acquisition/torch_dynamo/torch_dynamo.tex}
-    \subsubsection{AOTAutograd}
-  \subsection*{Graph Lowering}
-    \subsubsection{ATen}
-    \subsubsection{Prim IR}
-  \subsection*{Graph Compilation}
-    \subsubsection{TorchScript Compiler - Legacy}\label{subsubsec:torchinductor}
-    \subsubsection{TorchInductor}\label{subsubsec:torchinductor}
+    \subsubsubsection{AOTAutograd}
+      \input{pytorch_submodule/src/the_framework/graph_acquisition/aot_autograd/aot_autograd.tex}
+  \subsubsection*{Graph Lowering}\stepcounter{subsubsection}
+    \subsubsubsection{ATen}
+    \subsubsubsection{Prim IR}
+  \subsubsection*{Graph Compilation}\stepcounter{subsubsection}
+    \subsubsubsection{TorchScript Compiler - Legacy}\label{subsubsec:torchinductor}
+    \subsubsubsection{TorchInductor}\label{subsubsec:torchinductor}
+
+\subsection*{Torch Compile}\label{subsec:torch_compile}\stepcounter{subsection}
 \section*{Building Models}\label{sec:building_models}
     \subsection{\pythoninline{torch.functional}}\label{subsec:torchinductor}
       \input{pytorch_submodule/src/building_neural_networks/torch_functional/torch_functional.tex}

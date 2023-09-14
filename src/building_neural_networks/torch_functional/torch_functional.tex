@@ -1,9 +1,8 @@
 \begin{defnbox}\nospacing
     \begin{defn}[\pythoninline{torch.functional}]\label{defn:torch_functional}\leavevmode\\
-        Is a module that contains a collection of stateless functions intended for neural network operations without learnable parameters that do not change
-        the way the operate between training and inference.
-        But this module may also be used to build more complex custom neural network layers.
-        This may include activation/loss functions, normalization, pooling layers and so on:
+        Is a module that contains a collection of stateless functions intended for neural network operations without learnable parameters that do not change the way the operate between training and inference.
+
+        This may include \textit{activation/loss functions, normalization, pooling layers}:
         \begin{mintlinebox}{python}
             import torch.nn.functional as F
 
@@ -12,7 +11,9 @@
         \end{mintlinebox}
     \end{defn}
 \end{defnbox}
-
+\begin{notebox}[Note]\nospacing
+   This module may also be used to build more complex custom neural network layers.
+\end{notebox}
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-command-extra-options: "-shell-escape"

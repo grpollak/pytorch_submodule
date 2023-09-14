@@ -1,0 +1,62 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[Torch FX]\label{defn:torch_fx}\leavevmode\\
+        Torch FX is a system that enables python-to-pytho code transformations of Pytorch code.
+        Torch FX consists of three  main components:
+        \begin{circlelistnosep}
+            \item \textit{\tc{gray}{Symbolic Tracing - legacy}}:\\
+            \tc{gray}{\texttt{torch.fx.trace} feeds \textit{proxies} (=fake values) through the code to record operations that can be represented as an FX IR.}\\
+            \tc{gray}{(will be most likely discontinued for Dynamo\cref{defn:torch_dynamo})}
+            \begin{mintlinebox}{python}
+                from troch.fx import Tracer, Graph
+                def fu(x):
+                    return torch.relu(x).neg()
+                graph : Graph = Tracer(fu)
+            \end{mintlinebox}
+            \item Torch FX Intermediate Representation (IR): \\
+            \textit{Torch FX IR} is the container for the operations that are recorded during symbolic tracing\cref{defn:torch_fx_ir}.
+            \begin{mintlinebox}{python}
+                from troch.fx import symbolic_trace, GraphModule
+                gm : GraphModule = torch.fx.symbolic_trace(fu)
+            \end{mintlinebox}
+            \item Python Code Generation:\\
+            Is the Python-to-Python tool that takes an FX Graph IRs represented as \pythoninline{torch.fx.GraphModule} as input and creates a transformed Python output that respects the graph semantics.
+            \begin{mintlinebox}{python}
+                print(gm.code)
+            \end{mintlinebox}
+        \end{circlelistnosep}
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Torch FX IR\hfill\tcblack{\pythoninline{torch.fx.Graph}}]\label{defn:torch_fx_ir}\leavevmode\\
+        Torch IR is represented by a DAG where, Nodes represent operations and edges represent values.
+        \pythoninline{torch.fx.Graph} is the format and underlying structure on which  transformations can be applied:
+        \begin{mintlinebox}{python}
+           print(graph)
+        \end{mintlinebox}
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\tcblack{\pythoninline{torch.fx.GraphModule}}\newline Torch FX Code Generation]\label{defn:torch_fx_code_generation}\leavevmode\\
+        The \pythoninline{GraphModule} is generated from an \pythoninline{fx.Graph}.
+        A \pythoninline{GraphModule} is an \pythoninline{nn.Module} that has
+        \begin{itemizenosep}
+            \item a \pythoninline{fx.Graph} attribute
+            \item a \pythoninline{fx.code} attribute representing the generated code
+            \item a \pythoninline{fx.forward} attribute generated from the corresponding graph
+        \end{itemizenosep}
+        \begin{mintlinebox}{python}
+            def transform(m: nn.Module, tracer_class = torch.fx.Tracer)
+                    -> torch.nn.Module:
+              graph : torch.fx.Graph = tracer_class().trace(m)
+              graph = |\texttt{\optc{modify(\tcblack{graph})}}|
+              return torch.fx.GraphModule(m, graph)
+        \end{mintlinebox}
+    \end{defn}
+\end{defnbox}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../formulary"
+%%% End:

@@ -1,0 +1,37 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[Eager Mode]\label{defn:eager_mode}\leavevmode\\
+        Eager mode is the default PyTorch mode, operations are executed immediately like in normal Python code.
+
+        In order to do automatic differentiation (AD) for gradient calculation during the backward pass, eager mode needs to track the operations performed on tensors
+        by building a dynamic graph\cref{defn:dynamic_graph_computation}.
+
+        This graph can be traversed backwards to calculate the gradients for each operation.
+    \end{defn}
+\end{defnbox}
+\begin{sectionbox}\nospacing
+   \begin{proslist}
+       \item \pythoninline{print} immediate results
+       \item debug control flows (e.g. loops and conditionals) line by line
+       \item fast prototyping
+   \end{proslist}
+   \begin{conslist}
+       \item builds a dynamic graph on the fly, as operations are performed\\
+        $\Rightarrow$ graph compilation and optimizations such as fusions of operations not possible
+   \end{conslist}
+\end{sectionbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Computation Graph]\label{defn:computation_graph}\leavevmode\\
+        A computation graph is a representation that can tracks data flow and operations and that can be used for automatic differentiation.
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Dynamic Graph Computation]\label{defn:dynamic_graph_computation}\leavevmode\\
+        A dynamic graph is a graph that tracks operations and data flow dynamically during the execution of the code.
+    \end{defn}
+\end{defnbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../formulary"
+%%% End:

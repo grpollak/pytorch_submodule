@@ -1,6 +1,11 @@
+\begin{sectionbox}[Why Torch Dynamo?]\nospacing
+    Why do we need Torch Dynamo if we have Torch Script \pythoninline{torch.jit} and
+    Torch FX tracing \pythoninline{torch.fx.symbolic_trace}?\\
+
+\end{sectionbox}
 \begin{defnbox}\nospacing
     \begin{defn}[Torch Dynamo]\label{defn:torch_dynamo}\leavevmode\\
-        Generates \textit{FX Graphs}\cref{defn:fx_graph} from Python bytecode.\\
+        Torch Dynamo is a JIT compiler that generates \textit{FX Graphs}\cref{defn:fx_graph} from Python bytecode.\\
         It uses the frame evaluation API in CPython to dynamically modify Python bytecode before execution.\\
         This modified python bytecode is then extracted into an FX Graph which can then be just-in-time compiled with a suitable backend.
         \begin{figure}[H]
@@ -10,12 +15,37 @@
               \resizebox{\linewidth}{!}{\input{pytorch_submodule/src/the_framework/graph_acquisition/figures/torch_dynamo.pdf_tex}}
             }
         \end{figure}
+        \imp{Obtain FX Graph, original/modified Bytecode, Guards}:
+        \begin{mintlinebox}{python}
+            import logging
+            dynamo.config.log_level = logging.INFO
+            dynamo.config.output_code = True
+        \end{mintlinebox}
+    \end{defn}
+\end{defnbox}
+\begin{mintlinebox}{python}
+    def inspect_backend(gm : , sample_inputs):
+        code = gm.print_readable()
+        with open("forward.svg", "wb") as file:
+            file.write(FxGraphDrawer(gm,'f').get_dot_graph().create_svg())
+        return gm.forward
+
+    torch._dynamo.reset()
+    compiled_f = torch.compile(f, backend=inspect_backend)
+
+    x = torch.rand(1000, requires_grad=True).to(device)
+    out = compiled_f(x)
+\end{mintlinebox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Guards]\label{defn:guards}
+        A criteria to check for Bytecode changes.
+        Torch Dynamo caches modified Bytecode.
+        When TorchDynamo receives a frame for evaluation, it checks if the objects referenced in the frame have changed using
+        \textit{Guards}.
     \end{defn}
 \end{defnbox}
 \begin{notebox}[Note]\nospacing
-    \begin{itemizenosep}
-        \item Torch Dynamo maintains the eager-mode capabilities using guards to ensure the generated graphs are valid
-    \end{itemizenosep}
+      Guard allow Torch Dynamo to maintain the eager-mode capabilities to ensure the generated graphs are valid.
 \end{notebox}
 
 %%% Local Variables:
