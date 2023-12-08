@@ -1,0 +1,45 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[Torchrun]\label{defn:torchrun}
+        \pythoninline{Torchrun} is a command line script that automatically spawns processes on devices and additionally:
+        \begin{itemizenosep}
+            \item handles failures by restarting workers but we need to provide loading/saving logic:
+            \begin{mintlinebox}{python}
+            def _save_snapshot(self, epoch):
+                snapshot = {
+                    "MODEL_STATE": self.model.module.state_dict(),
+                    "EPOCHS_RUN": epoch,
+                }
+                torch.save(snapshot, self.snapshot_path)
+            \end{mintlinebox}
+            \begin{mintlinebox}{python}
+            def _load_snapshot(self, snapshot_path):
+                snapshot = torch.load(snapshot_path, map_location=loc)
+                self.model.load_state_dict(snapshot["MODEL_STATE"])
+                self.epochs_run = snapshot["EPOCHS_RUN"]
+            \end{mintlinebox}
+            \item automatically sets \pythoninline{RANK} and \pythoninline{WORLD_SIZE} and \pythoninline{os.environ["LOCAL_RANK"]} to access the id of the current device.
+            \item Can use an elastic number of nodes between \pythoninline{min} and \pythoninline{max}
+        \end{itemizenosep}
+        \imp{Simplified Initialization}:
+        \begin{mintlinebox}{python}
+            def main():
+                dist.init_process_group(backend=|\texttt{\optc{backend}}|)
+                // Distributed Training Logic
+                dist.destroy_process_group()
+        \end{mintlinebox}
+        \imp{Execution}:
+        \begingroup
+        \catcode`\!=\active
+        \def!#1!{\optc{\texttt{#1}}}
+        \begin{mintlinebox}{bash}
+           torchrun !--standalone! --nproc_per_node=gpu script.py !cmlArgs!
+        \end{mintlinebox}
+        \endgroup
+    \end{defn}
+\end{defnbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

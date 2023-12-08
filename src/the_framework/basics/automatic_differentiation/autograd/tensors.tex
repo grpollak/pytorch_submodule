@@ -1,0 +1,27 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[Tensors And Graphs]\label{defn:tensors_and_graphs}\leavevmode\\
+        Tensors are the main data-structure that hold references to the graph as well as to the gradients
+        via \cppinline{AutogradMeta}\cref{defn:autogradmeta} structs:\\
+        \begin{minipage}{0.7\textwidth}
+            \imp{data}: holds the actual tensor value.\\
+            \imp{requires\_grad}: specifies if the gradient should be calculated.\\
+            \imp{grad}: holds the actual gradient value for tensors requiring gradients after \pythoninline{backward} is called.\\
+            \imp{grad\_fn}: is a function representing operations on a tensor.\\
+            \imp{is\_leaf}: specifies if the tensor is a leaf or intermediate tensor inside the graph.
+        \end{minipage}\hfill
+        \begin{minipage}{0.26\textwidth}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1.0\textwidth]{pytorch_submodule/src/the_framework/basics/automatic_differentiation/autograd/figures/tensor.pdf}
+            \end{figure}
+        \end{minipage}
+    \end{defn}
+\end{defnbox}
+\begin{notebox}[Note]\nospacing
+    Only Tensors that require gradients obtain an \cppinline{AutogradMeta} to hold a reference to the graph.
+\end{notebox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape
+%%% TeX-master: "../../../../../../formulary"
+%%% End:

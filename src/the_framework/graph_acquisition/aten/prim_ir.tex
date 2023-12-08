@@ -1,0 +1,25 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\hfill\exampleref{example:decomposing_aten_core_into_prims}\newline Prim IR\hfill\tcblack{[$\approx$250 ops]}]\label{defn:prim_ir}\leavevmode\\
+        Prims IR is a lower level opset than core aten IR, and it further decomposes ops into explicit type promotion and broadcasting ops:
+        Prims IR decomposes more complex operations such as \pythoninline{torch.ops.aten.mean} into a set of simpler operations
+        such as \pythoninline{torch.ops.prims.mul.default}, \pythoninline{torch.ops.prims.sum.default} and \pythoninline{torch.ops.prims.div.default}.
+    \end{defn}
+\end{defnbox}
+\begin{sectionbox}\nospacing
+   \begin{proslist}
+       \item decomposes Core Aten IR ops into a even smaller subset of operations making it even easier to write compilers for specific hardware.
+   \end{proslist}
+   \begin{conslist}
+       \item Decomposing operators into lower and lower operations may lead to excess memory writes and function call overheads,
+       which may lead to performance degradation.
+   \end{conslist}
+\end{sectionbox}
+\begin{notebox}[Note]\nospacing
+    The hope is that hardware compilers can take the smaller subset of operators and fuse them back up to hardware operations s.t. we don't
+    suffer any degradation.
+\end{notebox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../formulary"
+%%% End:

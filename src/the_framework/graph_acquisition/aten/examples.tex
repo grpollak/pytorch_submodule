@@ -1,0 +1,58 @@
+\begin{examplebox}\nospacing
+    \begin{example}[\newline Decomposing ATen into ATenCore\cref{defn:core_aten_ir}]\label{example:decomposing_aten_into_atencore}\leavevmode\\
+    Is similar to \exampleref{example:draw_aot_graphs} but we additionally supply decompositions to \pythoninline{aot_module_simplified}:
+    \begin{plaincodebox}{python}
+        from torch._decomp import core_aten_decompositions
+        |\texttt{\ldots}|
+        decompositions = core_aten_decompositions()
+        def inspect_backend(gm, sample_inputs):
+            |\texttt{\ldots}|
+            return aot_module_simplified(
+                gm,
+                sample_inputs,
+                fw_compiler=fw,
+                bw_compiler=bw,
+                decompositions=decompositions
+            )
+            |\texttt{\ldots}|
+    \end{plaincodebox}
+    \end{example}
+\end{examplebox}
+\begin{examplebox}\nospacing
+    \begin{example}[\newline Decomposing Core ATen Operations into Prims]\label{example:decomposing_aten_core_into_prims}\leavevmode\\
+    Is similar to \exampleref{example:draw_aot_graphs} but we additionally restrict decompositions for \pythoninline{aot_module_simplified}:
+    \begin{plaincodebox}{python}
+        from torch._decomp import core_aten_decompositions
+        |\texttt{\ldots}|
+        decompositions = core_aten_decompositions()
+        decompositions.update(
+            torch._decomp.get_decompositions([
+                torch.ops.aten.sin,
+                torch.ops.aten.cos,
+                torch.ops.aten.add,
+                torch.ops.aten.sub,
+                torch.ops.aten.mul,
+                torch.ops.aten.sum,
+                torch.ops.aten.mean,
+                torch.ops.aten.pow.Tensor_Scalar,
+            ])
+        )
+        def inspect_backend(gm, sample_inputs):
+            |\texttt{\ldots}|
+            return aot_module_simplified(
+                gm,
+                sample_inputs,
+                fw_compiler=fw,
+                bw_compiler=bw,
+                decompositions=decompositions
+            )
+            |\texttt{\ldots}|
+    \end{plaincodebox}
+    \end{example}
+\end{examplebox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../formulary"
+%%% End:

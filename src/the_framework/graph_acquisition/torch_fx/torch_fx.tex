@@ -1,6 +1,6 @@
 \begin{defnbox}\nospacing
     \begin{defn}[Torch FX]\label{defn:torch_fx}\leavevmode\\
-        Torch FX is a system that enables python-to-pytho code transformations of Pytorch code.
+        Torch FX is a system that enables python-to-python code transformations of Pytorch code.
         Torch FX consists of three  main components:
         \begin{circlelistnosep}
             \item \textit{\tc{gray}{Symbolic Tracing - legacy}}:\\
@@ -38,6 +38,8 @@
 \begin{defnbox}\nospacing
     \begin{defn}[\hfill\tcblack{\pythoninline{torch.fx.GraphModule}}\newline Torch FX Code Generation]\label{defn:torch_fx_code_generation}\leavevmode\\
         The \pythoninline{GraphModule} is generated from an \pythoninline{fx.Graph}.
+
+
         A \pythoninline{GraphModule} is an \pythoninline{nn.Module} that has
         \begin{itemizenosep}
             \item a \pythoninline{fx.Graph} attribute

@@ -1,9 +1,18 @@
 \begin{defnbox}\nospacing
-    \begin{defn}[AOTAutograd]\label{defn:aotautograd}
-
+    \begin{defn}[Autograd]\label{defn:autograd}
+       In Pytorch automatic differentiation is called Autograd and is down using reverse/backward mode differentiation\cref{defn:reverse_mode_automatic_differentiation}.
     \end{defn}
 \end{defnbox}
-
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\exampleref{example:draw_aot_graphs}\newline AOT Autograd]\label{defn:aotautograd}
+        \textit{Ahead Of Time} Autograd traces the forward and backward graph \textit{ahead of time}, before execution in \pythoninline{torch.fx.Graph} structures.
+        It also converts the Pytorch API operations into ATen operations\cref{defn:aten}
+        The forward and backward graph contain the neccesary data and operations to perform forward and backward propagation:
+        \begin{mintlinebox}{python}
+                gm_forward = aot_module_|\texttt{\optc{simplified}}|(gm, sample_inputs)
+        \end{mintlinebox}
+    \end{defn}
+\end{defnbox}
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-command-extra-options: "-shell-escape"

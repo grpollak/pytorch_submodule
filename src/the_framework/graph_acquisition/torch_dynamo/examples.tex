@@ -1,0 +1,37 @@
+\begin{examplebox}\nospacing
+    \begin{example}[Graph Visualization\cref{defn:torch_dynamo}]\label{example:graph_visualization}\leavevmode
+        \begin{plaincodebox}{python}
+            import torch
+            import torch._dynamo as dynamo
+            from functorch.compile import make_boxed_func
+            from torch.fx.passes.graph_drawer import FxGraphDrawer
+            def fu(x: torch.Tensor):
+                return torch.relu(x).neg()
+
+            def draw_graph(gm, f_name):
+                # print graph to console
+                gm.print_readable()  # or gm.graph.print_tabular()
+                gd = FxGraphDrawer(gm, "fn")
+                with open(f_name, "wb") as file:
+                    file.write(gd.get_dot_graph().create_svg())
+                    # returns gm
+                    return make_boxed_func(gm.forward)
+
+            def inspect_backend(gm: torch.fx.GraphModule, input):
+                draw_graph(gm, "fx_graph.svg")
+                return gm.forward
+
+            # Clear default backend
+            dynamo.reset()
+            cmp_f = torch.compile(fu, backend=inspect_backend)
+            x = torch.rand(1000)
+            out = cmp_f(x)
+        \end{plaincodebox}
+    \end{example}
+\end{examplebox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../formulary"
+%%% End:

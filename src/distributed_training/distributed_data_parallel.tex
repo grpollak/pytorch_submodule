@@ -1,0 +1,40 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[Distributed Data Parallel\hfill\blackab{DDP}\newline \hfill\tcblack{\pythoninline{from torch.nn.parallel import DistributedDataParallel}}]\label{defn:distributeddataparallel}\leavevmode\\
+        DDP wrap's our model and coordinates the training across processes/devices by synchronizing model parameters and gradient updates across the environment.
+        \begin{mintlinebox}{python}
+            model = DDP(model, device_ids=[|\texttt{\optc{LOCAL\_RANK}}|])|\hfill\tc{gray} model = model.module|
+        \end{mintlinebox}
+    \end{defn}
+\end{defnbox}
+\begin{notebox}[Note]\nospacing
+    \texttt{\optc{LOCAL\_RANK}} is the local GPU id on which the model lives on.
+\end{notebox}
+\begin{attentionbox}{Attention}\nospacing
+    \begin{itemizenosep}
+        \item We want to save the actual module i.e. \pythoninline{model.module} to not store parameters and buffers of the DDP-wrapper model.
+        \item We only want to save the model on the master rank i.e.\ \pythoninline{gpu_id==0}.
+    \end{itemizenosep}
+\end{attentionbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Distributed Sampling\newline \hfill\tcblack{\pythoninline{from torch.utils.data.distributed import DistributedSampler}}]\label{defn:distributed_sampling}\leavevmode\\
+        The Distributed Sampler can be used by a \pythoninline{DataLoader} and distributes the input batch across all devices without overlap:
+        \begin{mintlinebox}{python}
+            dl = DataLoader(|\texttt{\optc{data}}|, batch_size=|\texttt{\optc{bs}}|, pin_memory=True,
+                            shuffle=False,
+                            sampler=DistributedSampler(|\texttt{\optc{data}}|))
+        \end{mintlinebox}
+    \end{defn}
+\end{defnbox}
+\begin{attentionbox}{Attention}\nospacing
+    We need to set shuffle to false, as the sampler becomes responsible for distributing samples i.e.\ we don't want to pass shuffled
+    samples to the sampler.
+\end{attentionbox}
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

@@ -1,0 +1,37 @@
+\begin{examplebox}\nospacing
+    \begin{example}[Data Dependent Control Flow]\label{example:data_dependent_control_flow}\leavevmode
+        \begin{plaincodebox}{python}
+            def fu(x):
+                if x.sum() < 0:
+                    return torch.tensor(0)
+                return torch.tensor(1)
+            x = torch.randn(5, 5)
+            jit_fu = jit.trace(fu, (x,))
+            fx_fu = fx.symbolic_trace.trace(fu, concrete_args={'x': x})
+            dynamo_fu = dynamo.optimize(fu, (x,))
+            jit_fu(-x) # != fu(x)
+            fx_fu(-x) # != fu(x)
+            dynamo_fu(-x) # == fu(x)
+        \end{plaincodebox}
+    \end{example}
+\end{examplebox}
+\begin{examplebox}\nospacing
+    \begin{example}[Module Dependent Control Flow]\label{example:module_dependent_control_flow}\leavevmode\\
+        After jit compilation\pythoninline{x = scipy.fft.dct(x.numpy())} and \pythoninline{x = torch.from_numpy(x)} will be treated as constants by \pythoninline{torch.fx} and \pythoninline{torch.jit}:
+        \begin{plaincodebox}{python}
+        def fu(x):
+            x = x*2
+            x = scipy.fft.dct(x.numpy())
+            x = torch.from_numpy(x)
+            x = x * 2
+            return x
+        x = torch.randn(5, 5)
+        jit_fu = jit.trace(fu, (x,))
+        fx_fu = fx.symbolic_trace.trace(fu, concrete_args={'x': x})
+        dynamo_fu = dynamo.optimize(fu, (x,))
+        jit_fu(-x) # != fu(x)
+        fx_fu(-x) # != fu(x)
+        dynamo_fu(-x) # == fu(x)
+        \end{plaincodebox}
+    \end{example}
+\end{examplebox}

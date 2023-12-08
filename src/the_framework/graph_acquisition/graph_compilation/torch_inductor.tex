@@ -1,0 +1,14 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\exampleref{example:torchinductor}\newline TorchInductor]\label{defn:torchinductor}\leavevmode\\
+        TorchInductor is the default backend for \pythoninline{torch.compile} and uses:
+        \begin{itemizenosep}
+            \item OpenAI Triton: to produce \textit{.ptx} code for GPU hardware
+            \item C++/OpenMP: for CPU targets
+        \end{itemizenosep}
+    \end{defn}
+\end{defnbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../../../../formulary"
+%%% TeX-command-extra-options: "-shell-escape"
+%%% End:

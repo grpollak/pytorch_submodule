@@ -1,0 +1,18 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[Tensor]\label{defn:tensor}\leavevmode\\
+        Is the fundamental data structure for efficient computations in Pytorch:
+        \begin{mintlinebox}{python}
+            x = tensor(|\texttt{\optc{data}}|, |\texttt{\optc{[}device=\optc{device]}}|)
+        \end{mintlinebox}
+    \end{defn}
+\end{defnbox}
+\begin{corbox}\nospacing
+    \begin{cor}[Implementation Details]\label{cor:torch_tensor_implementation_details}\leavevmode\\
+        \pythoninline{torch.tensors} are based on the C++ ATen\cref{defn:aten} class \cppinline{at::Tensor} see \cref{defn:at::Tensor}.
+    \end{cor}
+\end{corbox}
+%%% Local Variables:
+%%% TeX-command-extra-options: "-shell-escape"
+%%% mode: latex
+%%% TeX-master: "../../../../../formulary"
+%%% End:

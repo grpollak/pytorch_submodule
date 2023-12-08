@@ -1,40 +1,191 @@
  \appendtographicspath{
           {python_submodule/figures/}
           {pytorch_submodule/src/the_framework/graph_acquisition/figures/}
+          {pytorch_submodule/src/the_framework/graph_acquisition/figures/}
           }
 
 
-\section{Pytorch Basics}
+\section{Pytorch Basics\hfill\normalsize{\pythoninline{import torch.tensor}}}
+  \section*{PyTorch Folder Sturcutre}
+    \input{pytorch_submodule/src/the_framework/basics/folder_structure/folder_structure.tex}
+
+  \section*{Torch}
+    \subsection{Tensors}
+      \input{pytorch_submodule/src/the_framework/basics/tensors/tensors.tex}
+      \subsubsubsection*{Important Tensor Attributes}\label{subsubsubsec:tensor_methods}
+        \input{pytorch_submodule/src/the_framework/basics/tensors/attributes.tex}
+        \paragraph{Shape and Size}
+          % tensor.shape: Returns the dimensions (shape) of the tensor.
+          % tensor.size(): Returns the size of the tensor (total number of elements).
+        \paragraph{Data Type and Device}
+          % tensor.dtype: Returns the data type of the elements in the tensor.
+          % tensor.device: Returns the device (CPU or CUDA) on which the tensor is located.
+      \subsubsubsection*{Important Tensor Methods}\label{subsubsubsec:tensor_methods}
+        \paragraph{Data Generation}
+          \input{pytorch_submodule/src/the_framework/basics/tensors/methods.tex}
+          % torch.empty(): Generates a 1-D tensor with regularly spaced values within a specified range.
+          % torch.arange(): Generates a 1-D tensor with regularly spaced values within a specified range.
+          % torch.linspace(): Generates a 1-D tensor with a specified number of equally spaced values within a range.
+        \paragraph{Combining Tensors}
+          \input{pytorch_submodule/src/the_framework/basics/tensors/combining.tex}
+          % torch.stack(): Stacks a sequence of tensors along a new dimension.
+        \paragraph{Transforming Tensors}
+            % tensor.view(): Reshapes the tensor to a specified shape.
+            % tensor.reshape(): Reshapes the tensor to a specified shape.
+            % tensor.transpose(): Transposes the dimensions of the tensor.
+            % tensor.permute(): Permutes the dimensions of the tensor according to the given order.
+            % tensor.squeeze(): Removes dimensions with size 1.
+            % tensor.unsqueeze(): Adds a dimension with size 1.
+            % .t() / tensor.transpose() / .T: Transposes a Tensor
+        \paragraph{Mathematical Operations}
+            % torch.add() / +: Adds two tensors element-wise.
+            % torch.sub() / -: Subtracts one tensor from another element-wise.
+            % torch.mul() / *: Multiplies two tensors element-wise.
+            % torch.div() / /: Divides one tensor by another element-wise.
+            % torch.exp(): Computes the exponential of each element.
+            % torch.log(): Computes the natural logarithm of each element.
+            % torch.sqrt(): Computes the square root of each element.
+            % torch.sum(): Computes the sum of elements along specified dimensions.
+            % torch.mean(): Computes the mean of elements along specified dimensions.
+            % torch.max(): Computes the maximum element along specified dimensions.
+            % torch.min(): Computes the minimum element along specified dimensions.
+        \paragraph{Matrix Operations}
+            % torch.mm() / @: Performs matrix multiplication.
+            % torch.bmm(): Performs batch matrix multiplication.
+            % torch.matmul(): Performs matrix multiplication with broadcasting.
+        \paragraph{Logical Comparisons}
+            % torch.eq(): Element-wise equality comparison.
+            % torch.gt(): Element-wise greater than comparison.
+            % torch.lt(): Element-wise less than comparison.
+            % torch.logical_and(): Element-wise logical AND operation.
+        \paragraph{Misc}
+          \input{pytorch_submodule/src/the_framework/basics/tensors/methods/misc.tex}
+            % tensor.item(): Returns the value of a tensor as a standard Python number if the tensor contains a single element.
+            % tensor.detach(): Returns the value of a tensor as a standard Python number if the tensor contains a single element.
+        \paragraph{In-place operations \pythoninline{op_}}
+
+
+
+\newpage
+  \subsection{Tracing}
   \input{pytorch_submodule/src/the_framework/basics/basics.tex}
-  \subsection*{Torch Eager Mode}\label{subsec:torch_eager_mode}
+  \subsection*{Automatic Differentiation}\label{subsec:automatic_differentiation}
+    \input{pytorch_submodule/src/the_framework/basics/automatic_differentiation/automatic_differentiation.tex}
+    \subsubsection{Reverse Modoe AD}\label{subsubsec:reverse_modoe_ad}
+      \input{pytorch_submodule/src/the_framework/basics/automatic_differentiation/reverse_mode.tex}
+
+
+  \section*{Torch Eager Mode}\label{subsec:torch_eager_mode}
       \input{pytorch_submodule/src/the_framework/basics/eager_mode/eager_mode.tex}
-    % \subsubsection*{Automatic Differentiation \rb{AD}}\label{subsec:automatic_differentiation}
-    %   \input{pytorch_submodule/src/the_framework/basics/automatic_differentiation/automatic_differentiation.tex}
-    % \subsubsubsection{Gradient Computation}\label{subsubsec:gradient_computation}
-    %     \input{pytorch_submodule/src/the_framework/basics/automatic_differentiation/gradient_computation.tex}
-\section{PyTorch Internals}
-  \subsection*{Graph Acquisition}\stepcounter{subsubsection}
-      \input{pytorch_submodule/src/the_framework/graph_acquisition/graph_acquisition.tex}
+    \subsection*{Automatic Differentiation \rb{AD}}\label{subsec:automatic_differentiation}
+      \input{pytorch_submodule/src/the_framework/basics/automatic_differentiation/automatic_differentiation.tex}
+      \subsubsubsection{Gradient Computation}\label{subsubsec:gradient_computation}
+          \input{pytorch_submodule/src/the_framework/basics/automatic_differentiation/gradient_computation.tex}
+    \subsection*{Tensors, Graphs and AutoGrad}\label{subsubsec:autograd}\stepcounter{subsection}
+        \input{pytorch_submodule/src/the_framework/basics/automatic_differentiation/autograd/tensors.tex}
+        \subsubsection*{grad\_fn}\label{subsubsec:grad_fn}
+          \input{pytorch_submodule/src/the_framework/basics/automatic_differentiation/autograd/grad_fn.tex}
+        \subsubsection*{AutoGrad\hfill\normalsize{\pythoninline{from torch import autograd}}}\label{subsubsec:name}
+          \input{pytorch_submodule/src/the_framework/basics/automatic_differentiation/autograd/autograd.tex}
+        \subsubsection*{The Dispatcher}\label{subsubsec:dispatch}
+
+
+      \subsection*{Grad Modes}\label{subsubsubsec:grad_modes}\stepcounter{subsubsection}
+      \subsubsection{Grad Mode}
+      \subsubsection{No-Grad Mode\hfill\normalsize{\pythoninline{torch.no_grad}}}
+        \input{pytorch_submodule/src/the_framework/basics/torch_eager/autogad/grad_modes/no_grad/no_grad.tex}
+      \subsubsection{Inference Mode}
+      \subsubsection{Evaluation Mode}
+      % (disables dropout etc)
+      \subsection*{Custom AutoGrad Operations}
+        % \paragraph{Using The Python API\hfill\normalsize{\pythoninline{from torch.autograd import Function}}}
+        % https://pytorch.org/tutorials/beginner/examples_autograd/two_layer_net_custom_function.html
+        % https://pytorch.org/docs/stable/generated/torch.autograd.function.FunctionCtx.save_for_backward.html
+      \subsection*{\tc{gray}{\textit{AutoGrad Profiler - Legacy}}}\label{subsubsubsec:grad_modes}
+
+
+\section{PyTorch Internals--Graph Acquisition}
+  \subsection*{Torch Compile}\label{subsec:torch_compile}\stepcounter{subsection}
+    \input{pytorch_submodule/src/the_framework/graph_acquisition/graph_acquisition.tex}
+    \input{pytorch_submodule/src/the_framework/graph_acquisition/torch_compile.tex}
     \subsection*{Torch FX}\label{subsec:fx_graph}
       \input{pytorch_submodule/src/the_framework/graph_acquisition/torch_fx/torch_fx.tex}
     \subsection{\tc{gray}{\textit{FX Tracing - Legacy}}}
     \subsection{Torch Dynamo\hfill\normalsize{\pythoninline{import torch._dynamo as dynamo}}}
       \input{pytorch_submodule/src/the_framework/graph_acquisition/torch_dynamo/torch_dynamo.tex}
-    \subsubsubsection{AOTAutograd}
+    \subsubsection{AOT Autograd\hfill\normalsize{\pythoninline{import torch._functorch.aot_autograd}}}
       \input{pytorch_submodule/src/the_framework/graph_acquisition/aot_autograd/aot_autograd.tex}
-  \subsubsection*{Graph Lowering}\stepcounter{subsubsection}
-    \subsubsubsection{ATen}
-    \subsubsubsection{Prim IR}
-  \subsubsection*{Graph Compilation}\stepcounter{subsubsection}
-    \subsubsubsection{TorchScript Compiler - Legacy}\label{subsubsec:torchinductor}
+    \subsubsection*{ATen - Graph Lowering}\stepcounter{subsubsection}
+      \input{pytorch_submodule/src/the_framework/graph_acquisition/aten/aten.tex}
+      \subsubsubsection{Operation Decomposition}
+        \input{pytorch_submodule/src/the_framework/graph_acquisition/aten/core_aten.tex}
+        \input{pytorch_submodule/src/the_framework/graph_acquisition/aten/prim_ir.tex}
+  \subsubsection*{Backends - Optimizing Graph Compilers}\stepcounter{subsubsection}
+    \input{pytorch_submodule/src/the_framework/graph_acquisition/graph_compilation/graph_compilation.tex}
     \subsubsubsection{TorchInductor}\label{subsubsec:torchinductor}
+        \input{pytorch_submodule/src/the_framework/graph_acquisition/graph_compilation/torch_inductor.tex}
+    \subsubsubsection{TorchScript Compiler - maintenance mode}\label{subsubsec:torchinductor}
+        \input{pytorch_submodule/src/the_framework/graph_acquisition/graph_compilation/torch_script.tex}
+  \subsection{OpenAI Triton}\label{subsec:openai_triton}
 
-\subsection*{Torch Compile}\label{subsec:torch_compile}\stepcounter{subsection}
+
+
 \section*{Building Models}\label{sec:building_models}
     \subsection{\pythoninline{torch.functional}}\label{subsec:torchinductor}
       \input{pytorch_submodule/src/building_neural_networks/torch_functional/torch_functional.tex}
 
-\section{Benchmarking}\label{sec:benchmarking}
+      % parameters() Vs state_dict
+      % The .parameters() only gives the module parameters i.e. weights and biases, while state_dict returns a dictionary containing a whole state of the module.
+\section*{Benchmarking}\label{sec:benchmarking}
+\section*{Distributed Training\hfill\normalsize{\pythoninline{import torch.distributed as dist}}}
+    \input{pytorch_submodule/src/distributed_training.tex}
+    \subsection*{Distributed Data Parallel Training}\label{subsec:distributed_data_parallel_training}
+        \input{pytorch_submodule/src/distributed_training/distributed_data_parallel.tex}
+    \subsection*{Torch Run}
+        \input{pytorch_submodule/src/distributed_training/torch_run.tex}
+
+\section*{Inference}
+  \section*{Torch Serve}
+
+\newpage
+\section*{Torch C++ Backend}
+  \subsection*{C10}
+      \input{pytorch_submodule/src/cpp/c10/c10.tex}
+      \subsubsection{C10 Tensor Container}\label{subsubsec:c10_tensors}
+        \input{pytorch_submodule/src/cpp/c10/tensors/tensorImpl/tensorImpl.tex}
+      \subsubsection{C10 Tensors}\label{subsubsec:c10_tensors}
+        \input{pytorch_submodule/src/cpp/c10/tensors.tex}
+  \subsection*{ATen}\label{subsec:aten}\stepcounter{subsection}
+      \input{pytorch_submodule/src/cpp/aten/aten.tex}
+      \subsubsection{ATen Tensors\hfill\normalsize{\cppinline{at::Tensor}}}\label{subsubsubsec:aten_tensors}
+        \input{pytorch_submodule/src/cpp/aten/tensor.tex}
+      \subsubsection*{Autograd}\label{subsec:autograd}\stepcounter{subsection}
+      \subsubsection*{C++ Frontend}\label{subsec:c++_frontend}\stepcounter{subsection}
+      \subsubsection*{TorchScript}\label{subsec:torchscript}\stepcounter{subsection}
+      \subsubsection*{C++ Extension}\label{subsec:c++_extension}\stepcounter{subsection}
+
+  \subsection*{torch/csrc}
+      \input{pytorch_submodule/src/cpp/torch/csrc/csrc.tex}
+      \subsubsection{Autograd}\label{subsubsec:autograd}
+        \input{pytorch_submodule/src/cpp/torch/csrc/autograd_meta.tex}
+
+
+
+
+
+
+\newpage
+\section{Examples}
+  \subsection{Pytorch Internals}\label{subsec:pytorch_internals}
+  \input{pytorch_submodule/src/the_framework/graph_acquisition/torch_dynamo/examples.tex}
+  \input{pytorch_submodule/src/the_framework/graph_acquisition/aot_autograd/examples.tex}
+  \input{pytorch_submodule/src/the_framework/graph_acquisition/aten/examples.tex}
+  \subsubsection{Dynamic Graphs}\label{subsubsec:dynamic_graphs}
+    \input{pytorch_submodule/src/the_framework/graph_acquisition/torch_dynamo/examples_dynamic_graphs.tex}
+  \subsubsection{Troch Inductor}\label{subsubsec:dynamic_graphs}
+    \input{pytorch_submodule/src/the_framework/graph_acquisition/graph_compilation/examples.tex}
+
+
 
 
 

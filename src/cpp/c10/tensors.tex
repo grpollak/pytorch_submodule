@@ -1,0 +1,20 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[C10 Tensor]\label{defn:c10_tensor}\leavevmode\\
+        \cppinline{c10::Tensor} is a wrapper class for the data container class \cppinline{c10::TensorImpl}.
+        It adds arithmetic operations and methods for Tensor manipulation to the pure container class \cppinline{c10::TensorImpl} and creates an \cppinline{AutogradMeta}\cref{defn:autogradmeta} object for Tensors that require gradients:
+        \begin{mintlinebox}{cpp}
+            void TensorImpl::set_requires_grad(bool requires_grad) {
+            ...
+            if (!autograd_meta_)
+                autograd_meta_ = impl::GetAutogradMetaFactory()->make();
+                autograd_meta_->set_requires_grad(requires_grad, this);
+            }
+        \end{mintlinebox}
+    \end{defn}
+\end{defnbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../formulary"
+%%% End:

@@ -1,0 +1,29 @@
+\begin{examplebox}\nospacing
+    \begin{example}[TorchInductor\cref{defn:torchinductor}]\label{example:torchinductor}\leavevmode\\
+        Using the options \pythoninline{trace.enabled} and \pythoninline{trace.graph_diagram} will create the folders:
+        \begin{itemize}
+            \item \texttt{torch\_compile\_debug/run\_\optc{<DATE\_TIME\_PID>}/aot\_torchinductor/}
+            \item \texttt{model\_\_\optc{XX}\_\optc{(forward/backward)}\_\optc{XX}/output\_code.py}
+        \end{itemize}
+        that include the forward and backward code:
+        \begin{plaincodebox}{python}
+        import torch
+        import torch._dynamo as dynamo
+        from functorch.compile import make_boxed_func
+        from torch.fx.passes.graph_drawer import FxGraphDrawer
+
+        def fu(x: torch.Tensor):
+            return torch.relu(x).neg() + torch.sin(x) ** 2
+
+        dynamo.reset()
+        cmp_f = torch.compile(fu,
+            backend="inductor",
+            options={"trace.enabled": True, "trace.graph_diagram": True}
+        )
+        device = "cpu" # device = 'gpu'
+        x = torch.rand(1000, requires_grad=True).to(device)
+        y = torch.ones_like(x)
+        out = torch.nn.functional.mse_loss(cmp_f(x), y).backward()
+        \end{plaincodebox}
+    \end{example}
+\end{examplebox}

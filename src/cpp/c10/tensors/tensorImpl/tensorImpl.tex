@@ -1,0 +1,12 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[TensorImpl\hfill\tcblack{\cppinline{c10::TensorImpl}}]\label{defn:c10::TensorImpl}\leavevmode\\
+        \cppinline{c10::TensorImpl} is the PyTorch C++ Tensor container class that is associate with a single Tensor.
+        It holds a reference to a \cppinline{c10::Storage} class, that represents the underlying memory storage.\\
+        \cppinline{c10::TensorImpl} adds meta-data information like the data pointer, shape, strides to the \cppinline{c10::Storage}s.
+    \end{defn}
+\end{defnbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape
+%%% TeX-master: "../../../../../../formulary"
+%%% End:

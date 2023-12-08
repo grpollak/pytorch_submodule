@@ -1,0 +1,47 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[Autograd]\label{defn:autograd}\leavevmode\\
+        \pythoninline{torch.autograd} is Pytorchs automatic differentiation module.
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[\pythoninline{autograd.grad}]\leavevmode\\
+       Calculates the gradient of an input tensor $x$ w.r.t.\ an output tensor $y$:
+        \begin{mintlinebox}{python}
+            x = torch.tensor(3.0, requires_grad=True)
+            y = x ** 2
+            grad_y_x = autograd.grad(y, x)
+        \end{mintlinebox}
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[\pythoninline{autograd.backward}]\leavevmode\\
+        calculates all the gradients of all the tensors that are marked for gradient computation (\pythoninline{requires_grad=True})
+        w.r.t.\ to a graph of a given tensor $y$ and accumulates the respective gradients into the \pythoninline{grad} fields of the tensors:
+        \begin{mintlinebox}{python}
+            x = torch.tensor(3.0, requires_grad=True)
+            y = x ** 2
+            # populate: x.grad and y.grad
+            y.backward()
+        \end{mintlinebox}
+    \end{defn}
+\end{defnbox}
+\begin{attentionbox}{Attention}\nospacing \leavevmode
+    \begin{itemizenosep}
+        \item As of now, \pythoninline{autograd} only supports floating point and complex Tensor types.
+        \item We can call \pythoninline{grad}/\pythoninline{backward} only once, unless with set \pythoninline{retain_graph=True}
+        \item \pythoninline{y.backward()} is actually an alias for:\\ \pythoninline{autograd.backward(y, torch.ones_like(y))} as $\pdv{y}{y}=\vec{1}$.
+    \end{itemizenosep}
+\end{attentionbox}
+\paragraph{Options}\label{para:options}
+\begin{optionsbox}\nospacing
+    \begin{option}[\pythoninline{retain_graph=None}]
+          specifies whether to discard the graph after automatic differentiation.
+    \end{option}
+\end{optionsbox}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../../formulary"
+%%% End:

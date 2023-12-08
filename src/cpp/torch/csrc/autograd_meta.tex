@@ -1,0 +1,31 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\tcblack{\texttt{torch/csrc/autograd/variable.h}}\newline
+        AutogradMeta]\label{defn:autogradmeta}\leavevmode\\
+        Is a data structure that hold graph information required for automatic differentiation:
+        \begin{mintlinebox}{cpp}
+            struct TORCH_API AutogradMeta : public c10::AutogradMetaInterface {
+                std::string name_;
+
+                Variable grad_;
+                std::shared_ptr<Node> grad_fn_;
+                std::weak_ptr<Node> grad_accumulator_;
+                // other fields and methods
+                ...
+            };
+        \end{mintlinebox}
+    \end{defn}
+\end{defnbox}
+\begin{notebox}[Note]\nospacing
+    \begin{itemizenosep}
+        \item Each tensor that requires a gradient obtains a reference to such a structure.
+        \item \texttt{TORCH\_API} is a macro that sets the visibility of the function of the shared library i.e.
+        for GCC \cppinline{__attribute__((__visibility__("default")))}.
+        By default functions are not exposed in the shared library.
+    \end{itemizenosep}
+\end{notebox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../formulary"
+%%% End:

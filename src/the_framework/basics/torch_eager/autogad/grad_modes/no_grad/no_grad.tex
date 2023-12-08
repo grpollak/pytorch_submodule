@@ -1,0 +1,25 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[No Grad]\label{defn:no_grad}\leavevmode\\
+        Is a thread local context manager\cref{defn:context_manager} that allows to disable gradient computation in its context:\\
+        \imp{Using \pythoninline{with}}:
+        \begin{mintlinebox}{python}
+        x = torch.tensor(1.0, requires_grad=True)
+        with torch.no_grad():
+            |\texttt{\optc{some tensor operations with x}}|
+        \end{mintlinebox}
+        \imp{As decorator}:
+        \begin{mintlinebox}{python}
+        @torch.no_grad()
+        def fu(|\texttt{\optc{args}}|):
+            |\texttt{\optc{some tensor operations}}|
+        \end{mintlinebox}
+    \end{defn}
+\end{defnbox}
+\begin{notebox}[Note]\nospacing
+    Output tensors inside this context will have \pythoninline{requires_grad=False}, even for input tensors with \pythoninline{requires_grad=True}.
+\end{notebox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../../../../formulary"
+%%% End:

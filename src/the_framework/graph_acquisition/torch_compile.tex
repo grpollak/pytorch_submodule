@@ -1,0 +1,32 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[Torch Compile]\label{defn:torch_compile}
+        Torch compile is a JIT compiler that consists of:
+        \begin{circlelistnosep}
+            \item TorchDynamo\cref{defn:torch_dynamo}
+            \item AOTAutograd\cref{defn:aotautograd}
+            \item ATen IR\cref{defn:aten_a_tensor_library}
+            \item TorchInductor\cref{defn:torchinductor}
+        \end{circlelistnosep}
+        it can be used for graph acquisition and optimization:
+        \begin{mintlinebox}{python}
+           import torch
+           import torch._dynamo as dynamo
+           cmp_f = torch.compile(
+               |\texttt{\optc{(fun/module)}}|, backend=|\texttt{\optc{backend}}|
+           )
+        \end{mintlinebox}
+    \end{defn}
+\end{defnbox}
+\begin{notebox}[Resetting The Backend]\nospacing
+    Note, if we change the backend we need to first reset the dynamo default backend:
+    \begin{plaincodebox}[colback=notebox]{python}
+    dynamo.reset()
+    \end{plaincodebox}
+\end{notebox}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../formulary"
+%%% End:

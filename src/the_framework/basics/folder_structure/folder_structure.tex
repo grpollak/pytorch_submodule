@@ -1,0 +1,22 @@
+\begin{sectionbox}\nospacing
+\dirtree{%
+    .1 / (Project Root).
+    .2 c10/ \DTcomment{C10 Library}.
+    .3 src/ \DTcomment{C10 source code}.
+    .2 aten/ \DTcomment{ATen Library}.
+    .3 src/ \DTcomment{ATen source code}.
+    .2 torch/ \DTcomment{Python Tensor Library}.
+    .3 \_tensor.py .
+    .3 autograd/ \DTcomment{Python Autograd Interface}.
+    .3 \ldots \DTcomment{All the other Python components}.
+    .3 csrc/ \DTcomment{C++ Core based on C10/ATen}.
+    .4 autograd/ \DTcomment{C++ Autograd Infrastructure}.
+    .4 interfaces/ \DTcomment{Interfaces to ATen and C10}.
+    .4 \ldots \DTcomment{All other C++ implementations}.
+}
+\end{sectionbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../formulary"
+%%% End:

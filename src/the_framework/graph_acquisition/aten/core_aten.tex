@@ -1,0 +1,13 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\exampleref{example:decomposing_aten_into_atencore}\newline Core ATen IR]\label{defn:core_aten_ir}
+        Is a subset of ATen IR s.t. any operation of ATen IR can be composed by Core ATen IR.
+        Core ATen IR allows compiler to map hardware specific operations directly to ATen Core operations.
+        It decomposes more complex operations such as \pythoninline{torch.ops.aten.mse_loss} into a set of simpler operations
+        such as \pythoninline{torch.ops.aten.subTensor} and \pythoninline{torch.ops.aten.mean}.
+    \end{defn}
+\end{defnbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../formulary"
+%%% End:

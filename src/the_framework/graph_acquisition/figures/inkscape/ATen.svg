@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="63.116291mm"
+   height="44.32328mm"
+   viewBox="0 0 63.116291 44.323281"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   sodipodi:docname="ATen.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect8"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,1.5875,0,1 @ F,0,0,1,0,0,0,1"
+       radius="6"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect6"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,1.5875,0,1 @ F,0,0,1,0,0,0,1"
+       radius="6"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <marker
+       style="overflow:visible"
+       id="Triangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="0.5"
+       markerHeight="0.5"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect19577"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false"
+       uniform="false" />
+    <marker
+       style="overflow:visible"
+       id="Arrow1Send"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Send"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path9156" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Sstart"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.2,0,0,0.2,1.2,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path9153" />
+    </marker>
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect9139"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false"
+       uniform="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect6408"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false"
+       uniform="false" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.1157778"
+     inkscape:cx="60.261528"
+     inkscape:cy="76.567588"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     width="64mm"
+     inkscape:window-width="1696"
+     inkscape:window-height="1024"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:pagecheckerboard="0"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-0.46215341,-173.53282)">
+    <path
+       style="fill:#6baed7;fill-opacity:1;stroke:none;stroke-width:0.352777;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill;stop-color:#000000"
+       d="m 57.044931,183.96744 c 0,0.028 -1.352338,1.67398 -2.698742,4.13949 l -2.272418,4.16121 -20.008099,-0.17697 -19.798528,0.23559 -1.83203,-2.93159 c -1.4980789,-2.3972 -2.2834114,-3.84809 -2.7107799,-4.45066 L 6.995668,183.91712 H 32.0203 c 13.763547,0 25.024628,-0.028 25.024628,0 z"
+       id="path17982"
+       sodipodi:nodetypes="cscccsscscc" />
+    <path
+       style="fill:#9467bd;fill-opacity:0.694064;stroke:none;stroke-width:0.352777;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill;stop-color:#000000"
+       d="m 62.598754,174.15819 c -0.03468,0.0638 -1.039005,1.9629 -2.761823,4.93887 l -2.792003,4.82286 H 32.020722 6.9956678 L 4.2228562,179.13021 C 2.5122853,176.1754 1.503899,174.27338 1.429141,174.19134 l -0.135924,-0.14916 h 30.684296 c 29.184164,0 30.681214,0.006 30.621241,0.11601 z"
+       id="path18129"
+       sodipodi:nodetypes="cscccsccsc" />
+    <path
+       style="fill:#34bc34;fill-opacity:1;stroke:none;stroke-width:0.352777;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill;stop-color:#000000"
+       d="m 43.421306,206.58583 c 0.488413,-0.68161 -2.819196,5.61943 -1.664025,3.07091 l -1.348452,2.97494 h -8.387754 -8.387756 l -1.684728,-3.19739 c -1.455174,-2.76173 -1.772578,-2.61237 -1.959949,-3.0109 l 0.940116,0.0665 H 32.027052 43.34371 Z"
+       id="path17904"
+       sodipodi:nodetypes="cscccsccccc" />
+    <path
+       style="fill:#aaaaaa;fill-opacity:0.987348;stroke:none;stroke-width:0.352777;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill;stop-color:#000000"
+       d="m 47.714384,199.65835 c -0.07407,0.0596 -0.648512,1.34872 -2.069194,3.46739 l -2.252415,3.35903 h -11.3717 -11.799871 l -1.871886,-3.31087 c -1.356145,-2.39866 -2.31695,-3.38131 -2.41577,-3.46739 L 16.189762,199.55 h 15.83729 16.273178 z"
+       id="path3"
+       sodipodi:nodetypes="cscccsscccc" />
+    <path
+       style="fill:#e5e571;fill-opacity:1;stroke:none;stroke-width:0.352777;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill;stop-color:#000000"
+       d="m 51.662963,192.08868 c 0.921407,0.0819 -0.558612,1.43697 -1.888041,3.65713 l -2.620202,4.37578 -14.867088,-0.0205 -15.476228,0.001 -1.945129,-2.91035 c -1.075592,-1.60933 -2.923535,-4.75938 -1.962876,-4.13951 l -1.23446,-0.79654 20.5835,-0.21677 c 10.675196,-0.11242 20.125054,0.13836 20.125054,0.16596 z"
+       id="path1"
+       sodipodi:nodetypes="cscccsscscc" />
+    <g
+       id="g17865"
+       transform="rotate(180,31.983703,200.83213)"
+       style="stroke-width:0.9;stroke-dasharray:none">
+      <path
+         id="path870"
+         style="fill:none;stroke:#000000;stroke-width:6.4615;stroke-dasharray:none;paint-order:markers stroke fill;stop-color:#000000"
+         inkscape:transform-center-y="-8.8608036"
+         transform="matrix(0.13947468,0,0,0.13909886,21.40673,166.11363)"
+         d="m 16.361367,165.02565 -51.123646,86.49327 -110.334251,191.10453 220.668517,1e-5 220.668503,-1e-5 -110.33425,-191.10454 -50.66222,-86.49326 z"
+         sodipodi:nodetypes="cccccccc" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'BitstreamVeraSansMono Nerd Font';-inkscape-font-specification:'BitstreamVeraSansMono Nerd Font';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
+       x="22.605751"
+       y="179.75964"
+       id="text1"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'BitstreamVeraSansMono Nerd Font';-inkscape-font-specification:'BitstreamVeraSansMono Nerd Font';stroke-width:0.264583"
+         x="22.605751"
+         y="179.75964">PyTorch API</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
+       x="26.317228"
+       y="204.05737"
+       id="text3"><tspan
+         sodipodi:role="line"
+         id="tspan3"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583"
+         x="26.317228"
+         y="204.05737">Prim API</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;line-height:1.25;font-family:'BitstreamVeraSansMono Nerd Font';-inkscape-font-specification:'BitstreamVeraSansMono Nerd Font';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
+       x="24.9569"
+       y="210.44815"
+       id="text4"><tspan
+         sodipodi:role="line"
+         id="tspan4"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:'BitstreamVeraSansMono Nerd Font';-inkscape-font-specification:'BitstreamVeraSansMono Nerd Font';stroke-width:0.264583"
+         x="24.9569"
+         y="210.44815">Device IR</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'BitstreamVeraSansMono Nerd Font';-inkscape-font-specification:'BitstreamVeraSansMono Nerd Font';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
+       x="21.732723"
+       y="197.09317"
+       id="text5"><tspan
+         sodipodi:role="line"
+         id="tspan5"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'BitstreamVeraSansMono Nerd Font';-inkscape-font-specification:'BitstreamVeraSansMono Nerd Font';stroke-width:0.264583"
+         x="21.732723"
+         y="197.09317">Core ATen IR</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'BitstreamVeraSansMono Nerd Font';-inkscape-font-specification:'BitstreamVeraSansMono Nerd Font';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
+       x="25.338198"
+       y="189.12444"
+       id="text6"><tspan
+         sodipodi:role="line"
+         id="tspan6"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'BitstreamVeraSansMono Nerd Font';-inkscape-font-specification:'BitstreamVeraSansMono Nerd Font';stroke-width:0.264583"
+         x="25.338198"
+         y="189.12444">ATen API</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.457206;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle)"
+       d="M 13.732209,195.87304 H 5.4913628 a 1.5875,1.5875 135 0 0 -1.5875,1.5875 v 9.75417"
+       id="path6"
+       inkscape:path-effect="#path-effect6"
+       inkscape:original-d="M 13.732209,195.87304 H 3.9038628 v 11.34167"
+       transform="matrix(0.76541459,0,0,1,3.1335807,0)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.457206;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle)"
+       d="M 8.8968034,195.87304 H 5.4913628 a 1.5875,1.5875 135 0 0 -1.5875,1.5875 v 9.75417"
+       id="path7"
+       inkscape:path-effect="#path-effect8"
+       inkscape:original-d="M 8.8968034,195.87304 H 3.9038628 v 11.34167"
+       transform="matrix(0.76541459,0,0,1,11.210869,7.3306795)"
+       sodipodi:nodetypes="ccc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
+       x="3.5307348"
+       y="210.80594"
+       id="text8"><tspan
+         sodipodi:role="line"
+         id="tspan8"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:'agave Nerd Font';-inkscape-font-specification:'agave Nerd Font';stroke-width:0.264583"
+         x="3.5307348"
+         y="210.80594">ASIC</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
+       x="3.0924065"
+       y="217.83681"
+       id="text9"><tspan
+         sodipodi:role="line"
+         id="tspan9"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:'agave Nerd Font';-inkscape-font-specification:'agave Nerd Font';stroke-width:0.264583"
+         x="3.0924065"
+         y="217.83681">AI Acclerators</tspan></text>
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#Triangle);stop-color:#000000;stop-opacity:1"
+       d="m 31.833855,212.73501 v 2.16125"
+       id="path9" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
+       x="26.367807"
+       y="217.83681"
+       id="text10"><tspan
+         sodipodi:role="line"
+         id="tspan10"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:'agave Nerd Font';-inkscape-font-specification:'agave Nerd Font';stroke-width:0.264583"
+         x="26.367807"
+         y="217.83681">GPU / CPU</tspan></text>
+  </g>
+</svg>

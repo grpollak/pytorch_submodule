@@ -1,0 +1,41 @@
+\begin{examplebox}\nospacing
+    \begin{example}[Draw AOT Graphs\cref{defn:aotautograd}]\label{example:draw_aot_graphs}\leavevmode\\
+        Draws the forward and backward AOT graphs:
+        \begin{plaincodebox}{python}
+            import torch._dynamo as dynamo
+            from torch._functorch.aot_autograd import aot_module_simplified
+
+            def inspect_backend(gm, sample_inps):
+                # Forward compiler capture
+                def fw(gm, sample_inps):
+                    draw_graph(gm, 'forward_aot.svg')
+                    return gm
+
+                # Backward compiler capture
+                def bw(gm, sample_inps):
+                    draw_graph(gm, 'backward_aot.svg')
+                    return gm
+
+                # Call AOTAutograd
+                gm_forward = aot_module_simplified(gm,sample_inps,
+                                                fw_compiler=fw,
+                                                bw_compiler=bw)
+                return gm_forward
+
+            x = torch.rand(1000)
+            y = torch.ones_like(x)
+            dynamo.reset()
+            cmp_f = torch.compile(fu, backend=inspect_backend)
+            # triggers compilation of forward graph on the first run
+            yhat = cmp_f(x)
+            # triggers compilation of backward graph on the first run
+            loss = torch.nn.functional.mse_loss(yhat, y).backward()
+        \end{plaincodebox}
+    \end{example}
+\end{examplebox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../formulary"
+%%% End:

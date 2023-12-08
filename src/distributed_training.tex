@@ -1,0 +1,36 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\tcblack{\pythoninline{torch.multiprocessing as mp}}\newline Torch Multiprocessing]\label{defn:torch_multiprocessing}
+        Allows to \pythoninline{spawn} functions accros multiple processes/devices:
+        \begin{mintlinebox}{python}
+           ws = torch.cuda.device_count()
+           mp.spawn(|\texttt{\optc{main}}|, args=(|\texttt{\optc{args\_of\_main}}|), nprocs=|\texttt{\optc{ws}}|)
+        \end{mintlinebox}
+        \imp{Note}: the first argument of the function must be main and gets populated automatically.
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Torch Distributed]\label{defn:torch_distributed}\leavevmode\\
+        Initializes the distributed environment:
+        \begin{mintlinebox}{cpp}
+        def main(rank, |\texttt{\optc{ws}}|):
+            os.environ("MASTER_ADDR") = |\texttt{\optc{localhost}}|
+            os.environ("MASTER_PORT") = |\texttt{\optc{23456}}|
+            dist.init_process_group(backend=|\texttt{\optc{backend}}|,
+                                    rank=|\texttt{\optc{rank}}|,
+                                    world_size=|\texttt{\optc{ws}}|)
+            // Distributed Training Logic
+            dist.destroy_process_group()
+        \end{mintlinebox}
+        \begin{itemizenosep}
+            \item \pythoninline{"MASTER_ADDR"}: specifies the address (hostname or IP address) of the master node
+            \item \pythoninline{"MASTER_PORT"}: specifies the port used by the backend for sending and reciveing
+        \end{itemizenosep}
+    \end{defn}
+\end{defnbox}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../formulary"
+%%% End:
